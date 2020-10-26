@@ -1,13 +1,28 @@
-const express = require('express');
-const server = express();
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import routes from "./src/routes/routes.js";
 
-server.get('/', (req, res) => {
-    res.send('Artworks Database Online...with automatic updates please?');
+const server = express();
+const PORT = 3000;
+
+//mongoose connection to mongoDB
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/ArtworksDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology:true
 });
 
-server.listen(3000, () => console.log('Server running on port 3000'));
+//body parser init
+server.use(bodyParser.urlencoded({extended: true}));
+server.use(bodyParser.json());
 
-server.route('/update').post((req,res)=>{
-    res.sendFile(__dirname + '/update.php');
+server.set('view engine', 'ejs');
+server.set('views', './views');
+
+routes(server);
+
+server.listen(PORT, () => {
+    console.log(`Your server is running on port ${PORT}`);
 });
 
