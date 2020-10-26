@@ -1,8 +1,13 @@
 const express = require('express');
-const app = express();
+const server = express();
 
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
     res.send('Artworks Database Online...with updates?');
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+server.listen(3000, () => console.log('Server running on port 3000'));
+
+server.route('/update').post((req,res)=>{
+    res.sendFile(__dirname + '/update.php');
+});
+
