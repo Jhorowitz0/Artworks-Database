@@ -2,7 +2,7 @@ const express = require('express');
 const server = express();
 
 server.get('/', (req, res) => {
-    res.send('Artworks Database Online...with updates?');
+    res.send('Artworks Database Online...with automatic updates?');
 });
 
 server.listen(3000, () => console.log('Server running on port 3000'));
