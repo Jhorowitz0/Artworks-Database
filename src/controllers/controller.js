@@ -5,7 +5,10 @@ const Artwork = mongoose.model('Artwork', models.artworkSchema);
 
 const controller = {
     renderArtworksList: (req,res)=>{
-        res.send('artworks rendered and updated');
+        Artwork.find({}, (err,artworks) => {
+            if(err)res.send(err);
+            res.send(artworks);
+        });
     },
 
     addArtwork: (req,res) => {
