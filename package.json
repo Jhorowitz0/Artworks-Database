@@ -1,0 +1,22 @@
+{
+  "name": "artworks-database",
+  "version": "1.0.0",
+  "description": "A node/express/mongo artworks database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhorowitz0/Artworks-Database.git"
+  },
+  "author": "Joseph Horowitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jhorowitz0/Artworks-Database/issues"
+  },
+  "homepage": "https://github.com/Jhorowitz0/Artworks-Database#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
